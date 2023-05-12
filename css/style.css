@@ -1,0 +1,56 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+ body{
+    background-color: #e0f7fa;
+  }
+  .icon-block {
+    padding: 0 15px;
+  }
+  
+  .icon-block .material-icons {
+    font-size: inherit;
+  }
+  
+  .navBar {
+    background-color: #00695dfb;
+    position: relative; 
+    height: 5em;
+  }
+  .iframe-navBar {
+    position: absolute; 
+    width: 100%; 
+    height: 100%; 
+    border: none;
+  }
+  
+  .texto-login {
+    color: #006064;
+  }
+  
+  .btn {
+    margin-top: 4em;
+  }
+  #btn-voltar{
+    background-color:#26a69a ;
+    margin-left: 1em;
+  }
+  #btn-adicionar{
+    background-color:#26a69a ;
+    margin-left: 20em;
+  }
+  
+  h1.titulo{
+    font-size: 40px;
+    font-family: sans-serif;
+  }
+  
+  .botoes{
+    display: flex;
+    justify-content: space-between;
+  }
+  

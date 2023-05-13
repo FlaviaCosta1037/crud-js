@@ -64,8 +64,6 @@ btnCancelar.addEventListener('click', function () {
     window.location.href = 'main.html';
 })
 
-//Função editar o usuário
-
 // Obter referências aos elementos do formulário
 const inputNome = document.querySelector('#nome');
 const inputSobrenome = document.querySelector('#sobrenome');
@@ -106,7 +104,9 @@ async function preencherFormulario(id) {
 
 //Validação de dados (inputs)
 
-//Salvar os dados novos do usuário
+
+
+//Função editar o usuário
 function editarUsuario(id, nome, sobrenome, idade, email, senha) {
     fetch(`${url}/${id}`, {
         method: 'PUT',

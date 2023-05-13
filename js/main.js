@@ -42,18 +42,22 @@ function listarUsuarios() {
                 tabelaUsuario.appendChild(acoesUsuario);
 
                 const editUser = document.createElement('button');
-                editUser.textContent = 'Editar';
                 editUser.classList.add('btn-floating', 'waves-effect', 'waves-light', 'blue');
-                editUser.href = '#';
+                const iconEditar = document.createElement('i');
+                iconEditar.classList.add('material-icons');
+                editUser.appendChild(iconEditar);
+                iconEditar.textContent = 'edit';
                 editUser.addEventListener('click', function () {
                     window.location.href = `formulario.html?${usuario.id}`
                 })
 
                 const excluirUsuario = document.createElement('button');
-                excluirUsuario.href = '#';
-                excluirUsuario.textContent = 'Excluir';
                 excluirUsuario.id = 'btn-excluir';
                 excluirUsuario.classList.add('btn-floating', 'waves-effect', 'waves-light', 'red');
+                const iconExcluir = document.createElement('i');
+                iconExcluir.classList.add('material-icons');
+                excluirUsuario.appendChild(iconExcluir);
+                iconExcluir.textContent = 'delete';
                 excluirUsuario.addEventListener('click', function () {
                     const confirmacao = confirm('Tem certeza que deseja excluir o usuário?');
                     if (confirmacao) {

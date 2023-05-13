@@ -5,52 +5,107 @@
  *
  * Made By MaterializeCSS.com
  */
- body{
-    background-color: #e0f7fa;
-  }
-  .icon-block {
-    padding: 0 15px;
-  }
+body {
+  /* background-image: url(../img/img_usuarios.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+}
+
+body::before {
+  /* content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); Cor semitransparente */
+}
+
+.no-margin-top{
+  margin-top: 0;
+}
+
+.imagem-login {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 220px;
+  background-image: url("../img/img_usuarios.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#index-banner {
+  padding-bottom: 5rem;
+}
+
+.container {
   
-  .icon-block .material-icons {
-    font-size: inherit;
-  }
-  
-  .navBar {
-    background-color: #00695dfb;
-    position: relative; 
-    height: 5em;
-  }
-  .iframe-navBar {
-    position: absolute; 
-    width: 100%; 
-    height: 100%; 
-    border: none;
-  }
-  
-  .texto-login {
-    color: #006064;
-  }
-  
-  .btn {
-    margin-top: 4em;
-  }
-  #btn-voltar{
-    background-color:#26a69a ;
-    margin-left: 1em;
-  }
-  #btn-adicionar{
-    background-color:#26a69a ;
-    margin-left: 20em;
-  }
-  
-  h1.titulo{
-    font-size: 40px;
-    font-family: sans-serif;
-  }
-  
-  .botoes{
-    display: flex;
-    justify-content: space-between;
-  }
-  
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+.navBar {
+  background-color: #424242;
+  position: relative;
+  height: 5em;
+}
+
+.iframe-navBar {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.texto-login {
+  color: #424242;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 50px;
+  margin-bottom: 1em;
+}
+
+.btn {
+  margin-top: 4em;
+}
+
+#btn-voltar {
+  background-color: #424242;
+  margin-left: 1em;
+}
+
+#btn-adicionar {
+  background-color: #424242;
+  margin-left: 20em;
+}
+
+#btn-excluir {
+  background-color: #ef5350;
+}
+
+#botao-acessar {
+  background-color: #424242;
+}
+
+h1.titulo {
+  font-size: 40px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.botoes {
+  display: flex;
+  justify-content: space-between;
+}
+
+table {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

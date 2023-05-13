@@ -42,7 +42,7 @@ function listarUsuarios() {
                 tabelaUsuario.appendChild(acoesUsuario);
 
                 const editUser = document.createElement('button');
-                editUser.classList.add('btn-floating', 'waves-effect', 'waves-light', 'light-blue');
+                editUser.classList.add('btn-floating', 'waves-effect', 'waves-light', 'light-blue','margin-right');
                 const iconEditar = document.createElement('i');
                 iconEditar.classList.add('material-icons');
                 editUser.appendChild(iconEditar);
@@ -53,7 +53,7 @@ function listarUsuarios() {
 
                 const excluirUsuario = document.createElement('button');
                 excluirUsuario.id = 'btn-excluir';
-                excluirUsuario.classList.add('btn-floating', 'waves-effect', 'waves-light');
+                excluirUsuario.classList.add('btn-floating', 'waves-effect', 'waves-light','margin-right');
                 const iconExcluir = document.createElement('i');
                 iconExcluir.classList.add('material-icons');
                 excluirUsuario.appendChild(iconExcluir);

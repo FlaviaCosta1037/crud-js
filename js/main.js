@@ -1,5 +1,4 @@
 import { usuarioLogado } from "./usuarioLogado.js";
-// import editar from "./editarUsuario.js";
 
 if (usuarioLogado !== null) {
     console.log(usuarioLogado.nome);
@@ -40,16 +39,20 @@ function listarUsuarios() {
                 tabelaUsuario.appendChild(senhaUsuario);
                 const acoesUsuario = document.createElement('td');
                 tabelaUsuario.appendChild(acoesUsuario);
-                const editarUsuario = document.createElement('button');
-                editarUsuario.textContent = 'Editar';
-                editarUsuario.classList.add('btn-floating', 'waves-effect', 'waves-light', 'blue');
-                editarUsuario.href = '#';
-                // editarUsuario.addEventListener('click', editar(id, nome, email))
+                const editUser = document.createElement('button');
+                editUser.textContent = 'Editar';
+                editUser.classList.add('btn-floating', 'waves-effect', 'waves-light', 'blue');
+                editUser.href = '#';
+
+                editUser.addEventListener('click', function(){
+                    window.location.href = `formulario.html?${usuario.id}`
+                })
+
                 const excluirUsuario = document.createElement('button');
                 excluirUsuario.href = '#';
                 excluirUsuario.textContent = 'Excluir';
                 excluirUsuario.classList.add('btn-floating', 'waves-effect', 'waves-light', 'red');
-                acoesUsuario.appendChild(editarUsuario);
+                acoesUsuario.appendChild(editUser);
                 acoesUsuario.appendChild(excluirUsuario);
                 document.querySelector('tbody').appendChild(tabelaUsuario);
             }

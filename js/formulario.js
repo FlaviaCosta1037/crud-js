@@ -38,3 +38,46 @@ function addUsuario(nome, sobrenome, idade, email, senha) {
         .catch(error => console.error(error));
 }
 
+    // Obter referências aos elementos do formulário
+    const inputNome = document.querySelector('#nome');
+    const inputSobrenome = document.querySelector('#sobrenome');
+    const inputIdade = document.querySelector('#idade');
+    const inputEmail = document.querySelector('#email');
+    const inputSenha = document.querySelector('#senha');
+
+    const id = window.location.href.split('?')[1];
+    if(id != null){
+        preencherFormulario(id);
+    }
+
+    async function buscarUsuario(id){
+        const url = `https://nodejs-production-74ce.up.railway.app/user/${id}`;
+        const response = await fetch(url);
+        return await response.json();
+    }
+    
+    function preecherCampos(usuario){
+        inputNome.value = usuario.nome;
+        inputNome.classList.add('valid');
+        document.querySelector('#labelNome').classList.add('active');
+        inputSobrenome.value = usuario.sobrenome;
+        inputNome.classList.add('valid');
+        document.querySelector('#labelSobrenome').classList.add('active');
+        inputIdade.value = usuario.idade;
+        inputNome.classList.add('valid');
+        document.querySelector('#labelIdade').classList.add('active');
+        inputEmail.value = usuario.email;
+        inputNome.classList.add('valid');
+        document.querySelector('#labelEmail').classList.add('active');
+        inputSenha.value = usuario.senha;
+        inputNome.classList.add('valid');
+        document.querySelector('#labelSenha').classList.add('active');
+        
+    }
+
+    async function preencherFormulario(id){
+        const usuario = await buscarUsuario(id);
+        preecherCampos(usuario);
+    }
+   
+

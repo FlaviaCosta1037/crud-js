@@ -32,31 +32,36 @@ if (id != null) {
 
 
 function addUsuario(nome, sobrenome, idade, email, senha) {
-    fetch(url, {
-        method: 'POST',
-        body: JSON.stringify({
-            nome,
-            sobrenome,
-            idade,
-            email,
-            senha
-        }),
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro ao adicionar usuário');
-            }
-            return response.json();
+    if (validarDados()) {
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify({
+                nome,
+                sobrenome,
+                idade,
+                email,
+                senha
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+            },
         })
-        .then(data => {
-            console.log('Usuário adicionado com sucesso:', data);
-            window.location.replace('./main.html');
-        })
-        .catch(error => console.error(error));
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao adicionar usuário');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Usuário adicionado com sucesso:', data);
+                window.location.replace('./main.html');
+            })
+            .catch(error => console.error(error));
+    } else {
+        return;
+    }
 }
+
 
 //Criado botão cancelar caso o usuário deseje voltar para a página principal
 const btnCancelar = document.querySelector('#btn-cancelar');
@@ -108,34 +113,79 @@ async function preencherFormulario(id) {
 
 //Função editar o usuário
 function editarUsuario(id, nome, sobrenome, idade, email, senha) {
-    fetch(`${url}/${id}`, {
-        method: 'PUT',
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            nome,
-            sobrenome,
-            idade,
-            email,
-            senha,
-        }
+    if (validarDados()) {
 
-        )
-    })
-        .then(response => {
-            if (response.ok) {
-                alert('Dados Atualizados com sucesso!')
-                window.location.replace('./main.html');
-            } else {
-                alert('Ocorreu um erro, tente novamente!')
+        fetch(`${url}/${id}`, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                nome,
+                sobrenome,
+                idade,
+                email,
+                senha,
             }
-        })
-        .then(error => {
-            console.error('Erro de requisição:', error);
-        })
 
+            )
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert('Dados Atualizados com sucesso!')
+                    window.location.replace('./main.html');
+                } else {
+                    alert('Ocorreu um erro, tente novamente!')
+                }
+            })
+            .then(error => {
+                console.error('Erro de requisição:', error);
+            })
+
+    } else {
+        return false;
+    }
 }
 
+function validarDados() {
+    const nome = document.querySelector('#nome').value.trim();
+    const sobrenome = document.querySelector('#sobrenome').value;
+    const idade = parseInt(document.querySelector('#idade').value);
+    const email = document.querySelector('#email').value;
+    const senha = document.querySelector('#senha').value;
+    const regexNome = /^[A-Za-zÀ-ÿ\s']+$/;
 
+    if (!regexNome.test(nome) || nome === '') {
+        alert('Por favor, informe o nome válido');
+        return false;
+    }
+
+    if (!regexNome.test(sobrenome) || sobrenome === '') {
+        alert('Por favor, informe o sobrenome válido.');
+        return false;
+    }
+
+    if (isNaN(idade) || idade <= 0) {
+        alert('Por favor, informe uma idade válida.');
+        return false;
+    }
+
+    if (!emailValido(email)) {
+        alert('Por favor, informe um email válido.');
+        return false;
+    }
+
+    if (senha.length < 6) {
+        alert('A senha deve conter pelo menos 6 caracteres.');
+        return false;
+    }
+
+    return true;
+}
+
+function emailValido(email) {
+    // Expressão regular para verificar o formato do email
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regexEmail.test(email);
+}
 

@@ -40,11 +40,11 @@ function listarUsuarios() {
                 tabelaUsuario.appendChild(senhaUsuario);
                 const acoesUsuario = document.createElement('td');
                 tabelaUsuario.appendChild(acoesUsuario);
+
                 const editUser = document.createElement('button');
                 editUser.textContent = 'Editar';
                 editUser.classList.add('btn-floating', 'waves-effect', 'waves-light', 'blue');
                 editUser.href = '#';
-
                 editUser.addEventListener('click', function () {
                     window.location.href = `formulario.html?${usuario.id}`
                 })
@@ -54,15 +54,12 @@ function listarUsuarios() {
                 excluirUsuario.textContent = 'Excluir';
                 excluirUsuario.id = 'btn-excluir';
                 excluirUsuario.classList.add('btn-floating', 'waves-effect', 'waves-light', 'red');
-
                 excluirUsuario.addEventListener('click', function () {
                     const confirmacao = confirm('Tem certeza que deseja excluir o usuário?');
                     if (confirmacao) {
-
                         deletarUsuario(usuario.id);
                     }
                 })
-
                 acoesUsuario.appendChild(editUser);
                 acoesUsuario.appendChild(excluirUsuario);
                 document.querySelector('tbody').appendChild(tabelaUsuario);

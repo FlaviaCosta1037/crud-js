@@ -1,5 +1,6 @@
 import { usuarioLogado } from "./usuarioLogado.js";
 
+
 if (usuarioLogado !== null) {
     console.log(usuarioLogado.nome);
     console.log(usuarioLogado.email);
@@ -44,14 +45,24 @@ function listarUsuarios() {
                 editUser.classList.add('btn-floating', 'waves-effect', 'waves-light', 'blue');
                 editUser.href = '#';
 
-                editUser.addEventListener('click', function(){
+                editUser.addEventListener('click', function () {
                     window.location.href = `formulario.html?${usuario.id}`
                 })
 
                 const excluirUsuario = document.createElement('button');
                 excluirUsuario.href = '#';
                 excluirUsuario.textContent = 'Excluir';
+                excluirUsuario.id = 'btn-excluir';
                 excluirUsuario.classList.add('btn-floating', 'waves-effect', 'waves-light', 'red');
+
+                excluirUsuario.addEventListener('click', function () {
+                    const confirmacao = confirm('Tem certeza que deseja excluir o usuário?');
+                    if (confirmacao) {
+
+                        deletarUsuario(usuario.id);
+                    }
+                })
+
                 acoesUsuario.appendChild(editUser);
                 acoesUsuario.appendChild(excluirUsuario);
                 document.querySelector('tbody').appendChild(tabelaUsuario);
@@ -74,3 +85,17 @@ btnAdicionar.addEventListener('click', function () {
     window.location.replace('./formulario.html');
 })
 
+function deletarUsuario(id) {
+    fetch(`${url}/${id}`, {
+        method: 'DELETE',
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao excluir usuário');
+            }
+            console.log('Usuário excluído com sucesso');
+            window.location.replace('./main.html');
+            // Faça qualquer ação adicional após excluir o usuário, se necessário
+        })
+        .catch(error => console.error(error));
+}

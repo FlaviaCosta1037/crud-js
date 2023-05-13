@@ -139,5 +139,3 @@ function editarUsuario(id, nome, sobrenome, idade, email, senha) {
 
 
 
-
-

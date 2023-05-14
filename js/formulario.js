@@ -107,10 +107,6 @@ async function preencherFormulario(id) {
     preecherCampos(usuario);
 }
 
-//Validação de dados (inputs)
-
-
-
 //Função editar o usuário
 function editarUsuario(id, nome, sobrenome, idade, email, senha) {
     if (validarDados()) {

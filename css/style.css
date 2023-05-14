@@ -38,8 +38,11 @@ body::before {
 }
 
 .container {
-  
+  max-width: 800px; 
+  width: 80%; 
+  margin: 0 auto; 
 }
+
 
 .icon-block {
   padding: 0 15px;

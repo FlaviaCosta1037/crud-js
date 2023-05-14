@@ -6,6 +6,7 @@
  * Made By MaterializeCSS.com
  */
 body {
+  background-color: #4242421e;
   /* background-image: url(../img/img_usuarios.jpg);
     background-size: cover;
     background-position: center;
@@ -26,17 +27,15 @@ body::before {
   margin-top: 0;
 }
 
-/* .imagem-login {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 220px;
-  background-image: url("../img/img_usuarios.jpg");
+.img-logo {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto; /* Adiciona margem automática para centralizar horizontalmente */
+  background-image: url("../img/sua-logo-aqui.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-} */
+}
 
 .container {
   
